@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Task1.AboutPage"
+             Title="AboutPage">
+    <VerticalStackLayout Padding="30,0" Spacing="25">
+        <Label 
+            Text="Welcome To About Page of .NET MAUI Application"
+            Style="{StaticResource SubHeadline}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="22"/>
+        <Button
+            x:Name="NavigateBtn"
+            Text="Back To Main Page" 
+            Clicked="OnNavigationClicked"
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

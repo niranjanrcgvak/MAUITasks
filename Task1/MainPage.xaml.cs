@@ -9,16 +9,25 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnNavigationClicked(object sender, EventArgs e)
         {
-            count++;
+            await Navigation.PushAsync(new AboutPage());
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+        private void OnUpdateClicked(object sender, EventArgs e)
+        {
+            string enteredText = inputField.Text;
+
+            if (string.IsNullOrWhiteSpace(enteredText))
+            {
+                outputLabel.Text = "Please enter some text!";
+                outputLabel.TextColor = Color.FromRgb(255, 0, 0);
+            }
             else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            {
+                outputLabel.Text = $"You entered: {enteredText}";
+                outputLabel.TextColor = Color.FromRgb(0, 0, 0);
+            }
         }
     }
 

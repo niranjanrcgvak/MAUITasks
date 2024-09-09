@@ -2,5 +2,6 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Task1/Task1/obj
-/Task1/.vs/Task1
+*/obj
+*/.vs
+*/bin

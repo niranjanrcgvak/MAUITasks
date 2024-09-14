@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Task2.MainPage"
+             xmlns:model="clr-namespace:Task2.Models"
+             xmlns:viewmodel="clr-namespace:Task2.ViewModels"
+             x:DataType="viewmodel:BookListViewModel"
+             Title="{Binding Title}">
+    <Grid ColumnSpacing="1" RowSpacing="1" Padding="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <VerticalStackLayout Grid.Row="0" Padding="10" Spacing="10" BackgroundColor="#512bD4"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+            <Frame CornerRadius="10" HasShadow="True" Padding="10,5" BackgroundColor="White" Margin="0">
+                <VerticalStackLayout Spacing="0">
+                    <Label Text="Book Title" />
+                    <Entry x:Name="BookTitle" Placeholder="Enter Book Title" FontSize="16" Text="{Binding BookTitle}" HorizontalOptions="FillAndExpand"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" HasShadow="True" Padding="10,5" BackgroundColor="White" Margin="0">
+                <VerticalStackLayout Spacing="0">
+                    <Label Text="Author" />
+                    <Entry x:Name="Author" Placeholder="Enter Author" FontSize="16" Text="{Binding Author}" HorizontalOptions="FillAndExpand"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" HasShadow="True" Padding="10,5" BackgroundColor="White" Margin="0">
+                <VerticalStackLayout Spacing="0">
+                    <Label Text="ISBN" />
+                    <Entry x:Name="Isbn" Placeholder="Enter ISBN" FontSize="16" Text="{Binding Isbn}" HorizontalOptions="FillAndExpand"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" HasShadow="True" Padding="10,5" BackgroundColor="White" Margin="0">
+                <VerticalStackLayout Spacing="0">
+                    <Label Text="Price (₹)" />
+                    <Entry x:Name="Price" Placeholder="Enter Price" FontSize="16" Text="{Binding Price}" HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" HasShadow="True" Padding="10,5" BackgroundColor="White" Margin="0">
+                <VerticalStackLayout Spacing="0">
+                    <Label Text="Stock" />
+                    <Entry x:Name="Stock" Placeholder="Enter Stock" FontSize="16" Text="{Binding Stock}" HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+
+
+        <Button Text="{Binding AddEditButtonText}" Grid.Row="1" IsEnabled="{Binding IsNotLoading}"
+                Command="{Binding SaveBookCommand}" Margin="9" />
+
+        <Button Text="Clear Form" BackgroundColor="#808080" Command="{Binding ClearFormCommand}" IsEnabled="{Binding IsNotLoading}" 
+                Grid.Row="2" Margin="9"/>
+
+        <RefreshView Grid.Row="4"
+                     Command="{Binding GetBookListCommand}" 
+                     IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView ItemsSource="{Binding Books}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Book">
+                        <Grid Padding="10" ColumnDefinitions="*, auto">
+                            <Frame HeightRequest="70" Grid.Column="0">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookListViewModel}}, Path=GetBookDetailsCommand }" 
+                                                          CommandParameter="{Binding Id}" />
+                                </Frame.GestureRecognizers>
+                                <HorizontalStackLayout Padding="5" Spacing="5">
+                                    <Label Text="{Binding BookTitle}"></Label>
+                                    <Label Text=" By - "></Label>
+                                    <Label Text="{Binding Author}"></Label>
+                                </HorizontalStackLayout>
+                            </Frame>
+                            <HorizontalStackLayout Grid.Column="1">
+                                <Button Text="Update" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookListViewModel}}, Path=SetEditModeCommand }" 
+                                                CommandParameter="{Binding Id}" Margin="5,20,0,20"/>
+                                <Button Text="Delete" BackgroundColor="#C30010" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookListViewModel}}, Path=DeleteBookCommand }" 
+                                                CommandParameter="{Binding Id}" Margin="5,20,0,20"/>
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

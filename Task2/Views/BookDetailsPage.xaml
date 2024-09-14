@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Task2.Views.BookDetailsPage"
+             xmlns:vm="clr-namespace:Task2.ViewModels"
+             Title="Book Details"
+             x:DataType="vm:BookDetailsViewModel">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid ColumnDefinitions="*,*">
+                <Label Text="Book Title" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
+                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
+                <Label Text="{Binding Book.BookTitle}" VerticalOptions="Center" HorizontalOptions="End" FontSize="20" Grid.Column="2" Padding="5"/>
+            </Grid>
+        </Frame>
+
+        <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid ColumnDefinitions="*,*">
+                <Label Text="Author" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
+                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
+                <Label Text="{Binding Book.Author}" VerticalOptions="Center" HorizontalOptions="End" FontSize="20" Grid.Column="2" Padding="5"/>
+            </Grid>
+        </Frame>
+
+        <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid ColumnDefinitions="*,*">
+                <Label Text="ISBN" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
+                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
+                <Label Text="{Binding Book.ISBN}" VerticalOptions="Center" HorizontalOptions="End" FontSize="20" Grid.Column="2" Padding="5"/>
+            </Grid>
+        </Frame>
+
+        <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid ColumnDefinitions="*,*">
+                <Label Text="Price" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
+                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
+                <Label Text="{Binding Book.Price, StringFormat='₹ {0:F2}'}" VerticalOptions="Center" HorizontalOptions="End" FontSize="20" Grid.Column="2" Padding="5"/>
+            </Grid>
+        </Frame>
+
+        <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid ColumnDefinitions="*,*">
+                <Label Text="Stock" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
+                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
+                <Label Text="{Binding Book.Stock}" VerticalOptions="Center" HorizontalOptions="End" FontSize="20" Grid.Column="2" Padding="5"/>
+            </Grid>
+        </Frame>
+
+    </Grid>
+
+</ContentPage>

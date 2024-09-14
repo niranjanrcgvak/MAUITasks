@@ -155,8 +155,15 @@ namespace Task2.ViewModels
         [RelayCommand]
         async Task ClearForm()
         {
-            AddEditButtonText = createButtonText;
-            BookId = 0;
+            if(BookId != 0)
+            {
+                AddEditButtonText = editButtonText;
+            }
+            else
+            {
+                AddEditButtonText = createButtonText;
+                BookId = 0;
+            }
             BookTitle = string.Empty;
             Author = string.Empty;
             Isbn = string.Empty;
@@ -175,6 +182,7 @@ namespace Task2.ViewModels
         [RelayCommand]
         async Task GridVisibilityTrue()
         {
+            BookId = 0;
             await ClearForm();
             Title = "Book List";
             IsFormVisible = false;

@@ -12,12 +12,20 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <VerticalStackLayout Grid.Row="0" Padding="10" Spacing="10" BackgroundColor="#512bD4"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+
+        <Button Text="Add Book"
+                Command="{Binding FormVisibilityTrueCommand}"
+                Grid.Row="0"
+                Margin="9"
+                IsVisible="{Binding IsGridVisible}"/>
+
+        <VerticalStackLayout Grid.Row="1" Padding="10" Spacing="10" BackgroundColor="#512bD4"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding IsFormVisible}">
             <Frame CornerRadius="10" HasShadow="True" Padding="10,5" BackgroundColor="White" Margin="0">
                 <VerticalStackLayout Spacing="0">
                     <Label Text="Book Title" />
@@ -56,15 +64,19 @@
         </VerticalStackLayout>
 
 
-        <Button Text="{Binding AddEditButtonText}" Grid.Row="1" IsEnabled="{Binding IsNotLoading}"
-                Command="{Binding SaveBookCommand}" Margin="9" />
+        <Button Text="{Binding AddEditButtonText}" Grid.Row="2" IsEnabled="{Binding IsNotLoading}"
+                Command="{Binding SaveBookCommand}" Margin="9" IsVisible="{Binding IsFormVisible}"/>
 
         <Button Text="Clear Form" BackgroundColor="#808080" Command="{Binding ClearFormCommand}" IsEnabled="{Binding IsNotLoading}" 
-                Grid.Row="2" Margin="9"/>
+                Grid.Row="3" Margin="9" IsVisible="{Binding IsFormVisible}"/>
 
-        <RefreshView Grid.Row="4"
+        <Button Text="Back To List" Command="{Binding GridVisibilityTrueCommand}" IsEnabled="{Binding IsNotLoading}" 
+            Grid.Row="4" Margin="9" IsVisible="{Binding IsFormVisible}"/>
+
+        <RefreshView Grid.Row="5"
                      Command="{Binding GetBookListCommand}" 
-                     IsRefreshing="{Binding IsRefreshing}">
+                     IsRefreshing="{Binding IsRefreshing}"
+                     IsVisible="{Binding IsGridVisible}">
             <CollectionView ItemsSource="{Binding Books}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Book">

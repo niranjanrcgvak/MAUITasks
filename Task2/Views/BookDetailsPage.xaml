@@ -21,41 +21,41 @@
 
         <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid ColumnDefinitions="*,*">
-                <Label Text="Book Title" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
-                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
-                <Label Text="{Binding Book.BookTitle}" VerticalOptions="Center" HorizontalOptions="End" FontSize="20" Grid.Column="2" Padding="5"/>
+                <Label Text="Book Title" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
+                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
+                <Label Text="{Binding Book.BookTitle}" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Padding="5"/>
             </Grid>
         </Frame>
 
         <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid ColumnDefinitions="*,*">
-                <Label Text="Author" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
-                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
-                <Label Text="{Binding Book.Author}" VerticalOptions="Center" HorizontalOptions="End" FontSize="20" Grid.Column="2" Padding="5"/>
+                <Label Text="Author" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
+                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
+                <Label Text="{Binding Book.Author}" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Padding="5"/>
             </Grid>
         </Frame>
 
         <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid ColumnDefinitions="*,*">
-                <Label Text="ISBN" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
-                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
-                <Label Text="{Binding Book.ISBN}" VerticalOptions="Center" HorizontalOptions="End" FontSize="20" Grid.Column="2" Padding="5"/>
+                <Label Text="ISBN" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
+                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
+                <Label Text="{Binding Book.ISBN}" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Padding="5"/>
             </Grid>
         </Frame>
 
         <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid ColumnDefinitions="*,*">
-                <Label Text="Price" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
-                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
-                <Label Text="{Binding Book.Price, StringFormat='₹ {0:F2}'}" VerticalOptions="Center" HorizontalOptions="End" FontSize="20" Grid.Column="2" Padding="5"/>
+                <Label Text="Price" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
+                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
+                <Label Text="{Binding Book.Price, StringFormat='₹ {0:F2}'}" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Padding="5"/>
             </Grid>
         </Frame>
 
         <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid ColumnDefinitions="*,*">
-                <Label Text="Stock" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
-                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
-                <Label Text="{Binding Book.Stock}" VerticalOptions="Center" HorizontalOptions="End" FontSize="20" Grid.Column="2" Padding="5"/>
+                <Label Text="Stock" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" Grid.Column="0" Padding="5"/>
+                <Label Text="-" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" Grid.Column="1" Padding="5"/>
+                <Label Text="{Binding Book.Stock}" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Padding="5"/>
             </Grid>
         </Frame>
 

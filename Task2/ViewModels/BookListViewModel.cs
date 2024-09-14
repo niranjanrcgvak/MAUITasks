@@ -17,6 +17,8 @@ namespace Task2.ViewModels
         {
             Title = "Book List";
             AddEditButtonText = createButtonText;
+            IsFormVisible = false;
+            IsGridVisible = true;
             GetBookList().Wait();
         }
 
@@ -36,6 +38,10 @@ namespace Task2.ViewModels
         string addEditButtonText;
         [ObservableProperty]
         int bookId;
+        [ObservableProperty]
+        bool isFormVisible;
+        [ObservableProperty]
+        bool isGridVisible;
 
         [RelayCommand]
         async Task GetBookList()
@@ -75,6 +81,8 @@ namespace Task2.ViewModels
         [RelayCommand]
         async Task SetEditMode(int id)
         {
+            FormVisibilityTrue();
+            Title = "Update Book";
             AddEditButtonText = editButtonText;
             BookId = id;
             var book = App.BookService.GetBook(id);
@@ -121,7 +129,7 @@ namespace Task2.ViewModels
             }
 
             await GetBookList();
-            await ClearForm();
+            await GridVisibilityTrue();
         }
 
         [RelayCommand]
@@ -149,11 +157,28 @@ namespace Task2.ViewModels
         {
             AddEditButtonText = createButtonText;
             BookId = 0;
-            Title = string.Empty;
+            BookTitle = string.Empty;
             Author = string.Empty;
             Isbn = string.Empty;
-            Price = 0;
-            Stock = 0;
+            Price = null;
+            Stock = null;
+        }
+
+        [RelayCommand]
+        async Task FormVisibilityTrue()
+        {
+            Title = "Add Book";
+            IsFormVisible = true;
+            IsGridVisible = false;
+        }
+
+        [RelayCommand]
+        async Task GridVisibilityTrue()
+        {
+            await ClearForm();
+            Title = "Book List";
+            IsFormVisible = false;
+            IsGridVisible = true;
         }
     }
 }
